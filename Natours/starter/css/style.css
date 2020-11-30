@@ -6,3 +6,18 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* Reset for each browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* everything related to front should go in the body tag (not *) to pass down through inheritance */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+}
