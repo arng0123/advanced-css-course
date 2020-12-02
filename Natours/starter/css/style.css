@@ -6,197 +6,143 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
+/* ----------------------------------------------- ANIMATIONS ----------------------------------------------- */
 /* Reset for each browser */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
 /* everything related to front should go in the body tag (not *) to pass down through inheritance */
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #7777;
-    padding: 30px 
-}
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; }
 
 /* ----------------------------------------------- HEADER STYLING ----------------------------------------------- */
 /*vh is viewport */
 .header {
-    height: 95vh;
-    background-image: linear-gradient(
-        to right bottom,
-         #7ed56fc0,
-         #28b485d5), 
-        url(../img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    position: relative;
-    /* this is how we make that triangle! Use clipper tool for easy CSS code grabs */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
-
-.logo-box {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  /* this is how we make that triangle! Use clipper tool for easy CSS code grabs */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* below is just an example of using the animation on the logo */
+  /* .logo:hover {
+        animation: moveInRight 3s ease-out;
+    } */ }
+  .header__logo-box {
     position: absolute;
     top: 40px;
-    left: 40px
-}
-
-.logo {
-    height: 35px;
-}
-
-/* below is just an example of using the animation on the logo */
-/* .logo:hover {
-    animation: moveInRight 3s ease-out;
-} */
-
-.text-box {
+    left: 40px; }
+  .header__logo {
+    height: 35px; }
+  .header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-}
+    text-align: center; }
+
 .heading-primary {
-    color: white;
-    text-transform: uppercase;
-
-    /* this takes care of the little shake at the end of the animation */
-    backface-visibility: hidden;
-
-    margin-bottom: 60px;
-}
-
-.heading-primary-main {
+  color: #fff;
+  text-transform: uppercase;
+  /* this takes care of the little shake at the end of the animation */
+  backface-visibility: hidden;
+  margin-bottom: 60px; }
+  .heading-primary--main {
     display: block;
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
-
     /* animation-name: moveInLeft;
-    animation-duration: 3s;
-    animation-timing-function: ease-out; */
-    animation: moveInLeft 3s ease-out;
-}
-
-.heading-primary-sub {
+        animation-duration: 3s;
+        animation-timing-function: ease-out; */
+    animation: moveInLeft 3s ease-out; }
+  .heading-primary--sub {
     display: block;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
-/* 
-    animation-name: moveInRight;
-    animation-duration: 3s; */
-    animation: moveInRight 3s ease-out;
-}
+    /* 
+        animation-name: moveInRight;
+        animation-duration: 3s; */
+    animation: moveInRight 3s ease-out; }
 
 @keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-
-    80% {
-        transform: translateX(20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  80% {
+    transform: translateX(20px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 @keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-
-    80% {
-        transform: translateX(-20px);
-    } 
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(100px); }
+  80% {
+    transform: translateX(-20px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 /* link psuedo-class styles elements based on a special condition */
-.btn:link, 
-.btn:visited {
+.btn {
+  /* when button is clicked */ }
+  .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 15px 40px;
     display: inline-block;
     border-radius: 100px;
     transition: all .2s;
-    position: relative;
-}
-
-.btn:hover {
+    position: relative; }
+  .btn:hover {
     /* when using the Y axis in styling it's backwards in that the negative values go up */
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.5);
-}
-
-/* when button is clicked */
-.btn:active {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scale(1.6);
+      opacity: 0; }
+  .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.5);
-}
-
-.btn-white {
-    background-color: white;
-    color: #7777;
-}
-
-.btn::after {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
     content: '';
     display: inline-block;
     height: 100%;
     width: 100%;
     border-radius: 100px;
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     /* defines the position of elements if they're one after the other  */
     z-index: -1;
-    transition: all .4s;
-}
-
-.btn-white::after {
-    background-color: white;
-}
-
-.btn:hover::after {
-    transform: scaleX(1.4) scale(1.6);
-    opacity: 0;
-}
-
-@keyframes moveInBtn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-.btn-animate {
+    transition: all .4s; }
+  .btn--animate {
     animation: moveInBtn 2s ease-out 1s;
     /* automatically applies the initial state of the 0% of the animation */
-    animation-fill-mode: backwards;
+    animation-fill-mode: backwards; }
 
-}
-
+@keyframes moveInBtn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 /* ----------------------------------------------- HEADER STYLING ----------------------------------------------- */
