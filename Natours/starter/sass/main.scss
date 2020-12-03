@@ -1,221 +1,25 @@
-/*
-COLORS:
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
+@import "base/base";
+@import "base/animation";
+@import "base/typography";
+@import "base/utilities";
 
-*/
+@import "pages/home"; 
 
-$color-primary: #55c57a;
-$color-primary-light: #7ed56f;
-$color-primary-dark: #28b485 ;
-$color-gray-dark: #777;
-$color-white: #fff;
-$color-black: #000;
+@import "components/button";
 
-/* ----------------------------------------------- ANIMATIONS ----------------------------------------------- */
-
-/* Reset for each browser */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* everything related to front should go in the body tag (not *) to pass down through inheritance */
-body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.7;
-    color: $color-gray-dark;
-    padding: 30px 
-}
-
-/* ----------------------------------------------- HEADER STYLING ----------------------------------------------- */
-/*vh is viewport */
-.header {
-    height: 95vh;
-    background-image: linear-gradient(
-        to right bottom,
-         rgba($color-primary-light, 0.8),
-         rgba($color-primary-dark, 0.8)), 
-        url(../img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    position: relative;
-    /* this is how we make that triangle! Use clipper tool for easy CSS code grabs */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-
-
-    &__logo-box {
-        position: absolute;
-        top: 40px;
-        left: 40px
-    }
-
-    &__logo {
-        height: 35px;
-    }
-    
-    /* below is just an example of using the animation on the logo */
-    /* .logo:hover {
-        animation: moveInRight 3s ease-out;
-    } */
-    
-    &__text-box {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-}
-
-
-.heading-primary {
-    color: $color-white;
-    text-transform: uppercase;
-
-    /* this takes care of the little shake at the end of the animation */
-    backface-visibility: hidden;
-
-    margin-bottom: 60px;
-    
-    &--main {
-        display: block;
-        font-size: 60px;
-        font-weight: 400;
-        letter-spacing: 35px;
-    
-        /* animation-name: moveInLeft;
-        animation-duration: 3s;
-        animation-timing-function: ease-out; */
-        animation: moveInLeft 3s ease-out;
-    }
-    
-    &--sub {
-        display: block;
-        font-size: 20px;
-        font-weight: 700;
-        letter-spacing: 17.4px;
-    /* 
-        animation-name: moveInRight;
-        animation-duration: 3s; */
-        animation: moveInRight 3s ease-out;
-    }
-}
-
-@keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-
-    80% {
-        transform: translateX(20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-@keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-
-    80% {
-        transform: translateX(-20px);
-    } 
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-
-/* link psuedo-class styles elements based on a special condition */
-
-.btn {
-    &:link, 
-    &:visited {
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 15px 40px;
-        display: inline-block;
-        border-radius: 100px;
-        transition: all .2s;
-        position: relative;
-    }
-    
-    &:hover {
-        /* when using the Y axis in styling it's backwards in that the negative values go up */
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0,0,0,.5);
-
-        &::after {
-            transform: scaleX(1.4) scale(1.6);
-            opacity: 0;
-        }
-    }
-    
-    /* when button is clicked */
-    &:active {
-        transform: translateY(-1px);
-        box-shadow: 0 5px 10px rgba($color-black,.5);
-    }
-    
-    &--white {
-        background-color: $color-white;
-        color: $color-gray-dark;
-
-        &::after {
-            background-color: $color-white;
-        }
-    }
-    
-    &::after {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 100px;
-        position: absolute;
-        top:0;
-        left:0;
-        /* defines the position of elements if they're one after the other  */
-        z-index: -1;
-        transition: all .4s;
-    }
-    
-
-    &--animate {
-        animation: moveInBtn 2s ease-out 1s;
-        /* automatically applies the initial state of the 0% of the animation */
-        animation-fill-mode: backwards;
-    
-    }
-}
-
-
-@keyframes moveInBtn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+@import "layout/header";
+@import "layout/grid";
 
 
 
-/* ----------------------------------------------- HEADER STYLING ----------------------------------------------- */
+
+
+
+
+
+
+

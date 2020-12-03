@@ -1,0 +1,45 @@
+/* everything related to front should go in the body tag (not *) to pass down through inheritance */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: $color-gray-dark;
+    padding: 30px 
+}
+
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+
+    /* this takes care of the little shake at the end of the animation */
+    backface-visibility: hidden;
+
+    margin-bottom: 60px;
+    
+    &--main {
+        display: block;
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 35px;
+    
+        /* animation-name: moveInLeft;
+        animation-duration: 3s;
+        animation-timing-function: ease-out; */
+        animation: moveInLeft 3s ease-out;
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 17.4px;
+    /* 
+        animation-name: moveInRight;
+        animation-duration: 3s; */
+        animation: moveInRight 3s ease-out;
+    }
+}
+
+

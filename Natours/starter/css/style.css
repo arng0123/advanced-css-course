@@ -1,17 +1,44 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-/* ----------------------------------------------- ANIMATIONS ----------------------------------------------- */
 /* Reset for each browser */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
   box-sizing: border-box; }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  80% {
+    transform: translateX(20px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); }
+  80% {
+    transform: translateX(-20px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBtn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 /* everything related to front should go in the body tag (not *) to pass down through inheritance */
 body {
@@ -21,33 +48,6 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 30px; }
-
-/* ----------------------------------------------- HEADER STYLING ----------------------------------------------- */
-/*vh is viewport */
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  /* this is how we make that triangle! Use clipper tool for easy CSS code grabs */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* below is just an example of using the animation on the logo */
-  /* .logo:hover {
-        animation: moveInRight 3s ease-out;
-    } */ }
-  .header__logo-box {
-    position: absolute;
-    top: 40px;
-    left: 40px; }
-  .header__logo {
-    height: 35px; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -74,27 +74,6 @@ body {
         animation-duration: 3s; */
     animation: moveInRight 3s ease-out; }
 
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px); }
-  80% {
-    transform: translateX(20px); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(100px); }
-  80% {
-    transform: translateX(-20px); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-/* link psuedo-class styles elements based on a special condition */
 .btn {
   /* when button is clicked */ }
   .btn:link, .btn:visited {
@@ -137,12 +116,47 @@ body {
     /* automatically applies the initial state of the 0% of the animation */
     animation-fill-mode: backwards; }
 
-@keyframes moveInBtn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
 /* ----------------------------------------------- HEADER STYLING ----------------------------------------------- */
+/*vh is viewport */
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  /* this is how we make that triangle! Use clipper tool for easy CSS code grabs */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* below is just an example of using the animation on the logo */
+  /* .logo:hover {
+        animation: moveInRight 3s ease-out;
+    } */ }
+  .header__logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px; }
+  .header__logo {
+    height: 35px; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+.row {
+  max-width: 114rem;
+  background-color: blue;
+  margin: 0 auto;
+  margin-bottom: 8rem; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) /2);
+    background-color: red;
+    float: left; }
+    .row .col-1-of-2:not(:last-child) {
+      margin-right: 6rem; }
