@@ -6,3 +6,23 @@
     //we do negative on the top margin to make it go past it's origin
     margin-top: -25vh;
 }
+
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(
+        to right bottom,
+         rgba($color-primary-light, 0.8),
+         rgba($color-primary-dark, 0.8)), 
+        url(../img/nat-4.jpg);
+    background-size: cover;
+    margin-top: -10rem;
+
+    //can use clip path property to make the diagnol, but this is another way
+    transform: skewY(-7deg);
+
+    //this is to fix the skew on the boxes using the direct child selector
+    & > * {
+        transform: skewY(7deg);
+    }
+
+}
