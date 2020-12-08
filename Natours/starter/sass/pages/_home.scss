@@ -26,3 +26,12 @@
     }
 
 }
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0 50rem 0;
+    //looking at the header values we account for the empty space the triangle leaves
+    //95vh-75vh
+    //we do negative on the top margin to make it go past it's origin
+    margin-top: -10vh;
+}
