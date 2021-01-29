@@ -1,0 +1,91 @@
+.popup {
+    background-color: rgba($color-black, .8);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    &__content {
+        @include absCenter; 
+        width: 75%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px; //rounded corners
+        display: table; //by using the table the browser will automaticall give all of the children the same height
+        overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(.5);
+        transition: all .4s .2s; //the 3rd number is the delay
+    }
+
+    &__left {
+        width: 33.3333333%;
+        // float: left;
+        display: table-cell;
+    }
+
+    &__right{
+        width: 66.66666667%;
+        // float: right;
+        display: table-cell;
+        vertical-align: middle; //can use this on table cells to align content to middle
+        padding: 3rem 5rem
+        
+    }
+
+    &__img{
+        display: block;
+        width: 100%
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+
+        column-count: 2; //automatically created 2 columns for us! 
+        column-gap: 4rem; //default is 1em (would be 14px due to font-size)
+        column-rule: 1px solid $color-grey-light-1;
+
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;  //automatically figures out where to place hyphens => need to define language in HTML
+    }
+
+        //target when we click the button to open tohe popup
+        &:target {
+            opacity: 1;
+            visibility: visible;
+        }
+    
+        &:target &__content {
+            opacity: 1;
+            transform: translate(-50%,-50%) scale(1);
+
+        }
+
+        //changes the target to section-tours to "close" the popup
+        &__close {
+            &:link,
+            &:visited {
+                color: $color-grey-dark-3;
+                position: absolute;
+                top: 2.5rem;
+                right: 2.5rem;
+                font-size: 3rem;
+                text-decoration: none;
+                display: inline-block;
+                line-height: 1;
+                transition: all .2s;
+            }
+    
+            &:hover {
+                color: $color-primary;
+            }
+        }
+}

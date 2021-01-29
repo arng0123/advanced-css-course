@@ -4,18 +4,19 @@
     &:visited {
         text-transform: uppercase;
         text-decoration: none;
-        padding: 15px 40px;
+        padding: 1.5rem 4rem;
         display: inline-block;
-        border-radius: 100px;
+        border-radius: 10rem;
         transition: all .2s;
         position: relative;
+        font-size: $default-font-size;
 
         //change for <button> element
         border: none;
         cursor: pointer;
 
     }
-    
+
     &:hover {
         /* when using the Y axis in styling it's backwards in that the negative values go up */
         transform: translateY(-3px);

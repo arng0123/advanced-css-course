@@ -10,7 +10,37 @@
 
 html{
     //defines what 1rem is
-    font-size: 62.5%;
+    font-size: 62.5%; //1rem = 10px     so 10px/16px = 62.5%
+
+    //This is the media query without the mixin! Below is with.
+    // @media (max-width: 600px) {
+    //     font-size: 30%
+    // }
+
+    //the font-size is what we're passing to the mixin! So this will all be called with the media query
+    // @include respond-phone {
+    //     font-size: 50%;
+    // }
+
+    //now we're using the media query as an argument! 
+    // we don't actually need the below one because the tab-port will take care of theose sizes since we used the same 500%
+    // @include respond (phone) {
+    //     font-size: 50%
+    // }
+
+
+
+    @include respond (tab-land) {
+        font-size: 56.25%  //1rem = 9px  
+    }
+
+    @include respond (tab-port) { //have to reoder them so the larger one is before the smaller ones
+        font-size: 50%  //1rem = 8px  8/16
+    }
+
+    @include respond (big-desktop) {
+        font-size: 75%  //1rem = 12
+    }
 }
 
 body {
