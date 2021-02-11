@@ -1,0 +1,37 @@
+.container {
+    max-width: 120rem; //so container can decrease if it can
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-2);
+    box-shadow: var(--box-shadow);
+    
+    
+    min-height: 50rem;
+}
+
+.header {
+    height: 7rem;
+    background-color: #FFF;
+    border-bottom: var(--color-grey-light-2);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+
+}
+
+.content {
+    display: flex;
+
+}
+
+.side-bar {
+    background-color: var(--color-grey-dark-1);
+
+    flex: 0 0 18%; 
+}
+
+.hotel-view {
+    background-color: #FFF;
+
+    flex: 1; //element should grow as much as it can! 
+}
